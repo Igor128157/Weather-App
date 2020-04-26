@@ -6,8 +6,8 @@ const apiKey = "13689220-f8624404383f6a2586dfba74c";
 export default {
   query: "",
 
-  axiosSity() {
-    const requestParams = `/?image_type=photo&sity&q=${this.query}&per_page=20&key=${apiKey}`;
+  axiosCityImg() {
+    const requestParams = `/?image_type=photo&orientation=horizontal&q=${this.query}&key=${apiKey}`;
     return axios.get(`${baseUrl}${requestParams}`).then((res) => {
       return res.data.hits;
     });

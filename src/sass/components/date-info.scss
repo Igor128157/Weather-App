@@ -1,279 +1,192 @@
+.daily {
+  font-family: $font-lato;
+  color: $primary-white-color;
+}
+
 .date-info {
-    margin: 0 auto;
-    width: 280px;
-    height: 190px;
-    box-shadow: 0 8px 43px rgba(16, 33, 54, 0.59);
-    border-radius: 35px;
-    background-color: #102136;
-    opacity: 0.6;
-    &__day {
-        &-wrapper {
-        margin: 0 auto;
-        width: 117px;
-        height: 33px;
-        display: flex;
-        justify-content: space-around;
-        }
-        &-now {
-            width: 22px;
-            height: 33px;
-            color: #f7f7f7;
-            font-family: $font-lato;
-            font-size: 45px;
-            font-weight: 300;
-            line-height: 22px;
-            letter-spacing: 1.35px;
-            margin-top: 28px;
-        }
-        &-ending {
-            width: 13px;
-            height: 10px;
-            color: #f7f7f7;
-            font-family: $font-lato;
-            font-size: 14px;
-            font-weight: 300;
-            line-height: 62px;
-            letter-spacing: 0.42px;
-        }
-        &-week {
-            width: 63px;
-            height: 32px;
-            color: #f7f7f7;
-            font-family: $font-lato;
-            font-size: 45px;
-            font-weight: 300;
-            line-height: 22px;
-            letter-spacing: 1.35px;
-            margin-top: 28px;
-        }
+  margin: 0 auto;
+  box-shadow: 0 8px 43px rgba(16, 33, 54, 0.6);
+  border-radius: 35px;
+  background-color: rgba(16, 33, 54, 0.6);
+  padding: 30px 0 40px;
+  font-weight: 300;
+  font-size: 14px;
+  margin-bottom: 44px;
+  &__day {
+    &-wrapper {
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 5px;
+      width: 118px;
+    }
+    &-now {
+      font-size: 45px;
+      &::after {
+        content: "Th";
+        font-size: 14px;
+        vertical-align: top;
+      }
+    }
+    &-week {
+      font-size: 45px;
+    }
+  }
+  &__time {
+    &-wrapper {
+      margin: 0 auto;
+      font-weight: 400;
+      display: flex;
+      justify-content: space-between;
+      width: 134px;
+      margin-bottom: 12px;
+    }
+    &-month {
+      padding-right: 11px;
+      border-right: 1px solid rgba(255, 255, 255, 0.3);
+    }
+    &-hour {
+      padding-left: 8px;
+    }
+  }
+
+  &__sun {
+    font-weight: 400;
+    &-wrapper {
+      display: flex;
+      justify-content: space-between;
+      margin: 0 auto;
+      width: 162px;
+    }
+    &-sunrise {
+      display: flex;
+      align-items: baseline;
+      padding-right: 9px;
+      border-right: 1px solid rgba(255, 255, 255, 0.3);
+    }
+    &-icon {
+      margin-right: 10px;
+    }
+    &-sunset {
+      display: flex;
+      align-items: baseline;
+      padding-left: 9px;
+    }
+    &-time {
+      font-weight: 400;
+    }
+  }
+}
+
+.quote {
+  text-align: -webkit-right;
+  &__text {
+    font-style: italic;
+    width: 200px;
+    margin-bottom: 16px;
+  }
+  &__author {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 768px) {
+  .daily {
+    width: 490px;
+    font-size: 18px;
+  }
+  .date-info {
+    margin-bottom: 64px;
+    &__day-now {
+      font-size: 90px;
+      &::after {
+        font-size: 23px;
+      }
+    }
+    &__day-week {
+      font-size: 90px;
+    }
+    &__day-wrapper {
+      width: 204px;
     }
     &__time {
-    &-wrapper {
-        margin: 0 auto;
-        margin-top: 40px;
-        width: 134px;
-        height: 20px;
-        display: flex;
-        justify-content: space-around;
-    }
-        &-month {
-            width: 58px;
-            height: 12px;
-            color: #ffffff;
-            font-family: $font-lato;
-            font-size: 14px;
-            font-weight: 400;
-            line-height: 22px;
-            letter-spacing: 0.42px;
-        }
-        &-hour {
-            width: 59px;
-            height: 10px;
-            color: $primary-white-color;
-            font-family: $font-lato;
-            font-size: 14px;
-            font-weight: 400;
-            line-height: 22px;
-            letter-spacing: 0.42px;
-        }
+      &-wrapper {
+        width: 200px;
+        margin-bottom: 28px;
+      }
+      &-month {
+        font-size: 18px;
+        padding-right: 27px;
+      }
+      &-hour {
+        font-size: 18px;
+      }
     }
 
     &__sun {
-        &-wrapper {
-        margin: 20px 59px 0px 59px;
-        display: flex;
-        justify-content: space-around;
-        }
-        &-sunrise {
-            display: flex;
-        }
-            &-icon {
-                width: 25px;
-                height: 33px;
-            }
-            &-time {
-                width: 38px;
-                height: 10px;
-                color: $primary-white-color;
-                font-family: $font-lato;
-                font-size: 14px;
-                font-weight: 400;
-                line-height: 22px;
-                letter-spacing: 0.42px;
-                margin-left: 10px;
-                margin-top: 15px;
-            }
-        
-        &-sunset {
-            display: flex;
-        }
-            &-icon {
-                width: 25px;
-                height: 33px;
-            }
-            &-time {
-                width: 38px;
-                height: 10px;
-                color: $primary-white-color;
-                font-family: $font-lato;
-                font-size: 14px;
-                font-weight: 400;
-                line-height: 22px;
-                letter-spacing: 0.42px;
-                margin-left: 10px;
-            }
-        }
+      &-wrapper {
+        width: 192px;
+      }
+      &-sunrise {
+        padding-right: 15px;
+      }
+      &-time {
+        font-size: 18px;
+      }
     }
-
-
-@media (min-width: 768px) {
-
-    .date-info {
-        width: 490px;
-        height: 277px;
-    
-        &__day {
-        &-wrapper {
-            margin: 0 auto;
-            width: 204px;
-            justify-content: space-between;
-        }
-
-            &-now {
-
-                width: 42px;
-                height: 65px;
-                font-size: 90px;
-                font-weight: 300;
-                line-height: 22px;
-                letter-spacing: 2.7px;
-                margin-top: 68px;
-            }
-            &-ending {
-                font-size: 23px;
-                font-weight: 300;
-                line-height: 116px;
-                letter-spacing: 0.69px;
-            }
-            &-week {
-                width: 124px;
-                height: 65px;
-                font-size: 90px;
-                font-weight: 300;
-                line-height: 22px;
-                letter-spacing: 2.7px;
-                margin-top: 68px;
-            }
-        }
-        &__time {
-        &-wrapper {
-            margin: 0 auto;
-            margin-top: 110px;
-            width: 204px;
-            height: 20px;
-            justify-content: space-between;
-        }
-    
-            &-month {
-                width: 75px;
-                height: 16px;
-                font-size: 18px;
-                font-weight: 400;
-                line-height: 22px;
-                letter-spacing: 0.54px;
-            }
-            &-hour {
-                margin-right: 12px;
-                width: 74px;
-                height: 13px;
-                font-size: 18px;
-                font-weight: 400;
-                line-height: 22px;
-                letter-spacing: 0.54px;
-            }
-        }
-
-        &__sun {
-        &-wrapper {
-        margin-top: 40px;
-        }
-    
-            &-sunrise {
-                margin-left: 65px;
-            }
-            &-sunset {
-                margin-right: 80px;
-            }
-            &-time {
-                margin-top: 14px;
-                width: 49px;
-                height: 13px;
-                font-size: 18px;
-                font-weight: 400;
-                letter-spacing: 0.54px;
-            }
-        }
+  }
+  .quote {
+    padding-right: 20px;
+    &__text {
+      width: 350px;
+      margin-bottom: 30px;
     }
+  }
 }
 
-
 @media screen and (min-width: 1120px) {
-   
-    .date-info {
-        margin: 0;
-        width: 603px;
-        height: 280px;
-        border-radius: 0;
-         
-        &__day {
-        &-wrapper {
-            margin: 0;
-            margin-left: 112px;
-        }
-        &-now {
-            margin-top: 90px;
-        }
-        &-ending {
-            margin-top: 22px;
-        }
-        &-week {
-            margin-top: 90px;
-        }
+  .daily {
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+  .date-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 600px;
+    margin-left: 0;
+    margin-right: auto;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    padding-left: 8%;
+    margin-bottom: 0;
+    &__day-wrapper {
+      margin: 0;
     }
-        &__value {
-            display: flex;
-        }
-        &__time {
-            &-wrapper {
-                // margin: 0;
-                margin-top: 135px;
-                margin-left: 112px;
-            }
-            // &-month {
-            //     margin-left: 72px;
-            // }
-            &-hour {
-                margin-left: 42px;
-            }
-        }
-
-        &__sun {
-        &-wrapper {
-            margin: 0;
-            margin-top: 120px;
-        }
-
-            &-time {
-                margin-left: 25px;
-            }
-    
-            &-sunset {
-                margin-left: 30px;
-                margin-right: 64px;
-            }
-            &-sunrise {
-                margin-left: 31px;
-            }
-        }
+    &__value {
+      display: flex;
+      align-items: baseline;
     }
+    &__time {
+      &-wrapper {
+        width: 175px;
+        margin-right: 30px;
+      }
+      &-month {
+        font-size: 18px;
+        padding-right: 15px;
+      }
+      &-hour {
+        font-size: 18px;
+      }
+    }
+  }
+  .quote {
+    margin-right: 5%;
+    &__text {
+      font-size: 22px;
+    }
+  }
 }

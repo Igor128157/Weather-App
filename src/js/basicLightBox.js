@@ -1,34 +1,37 @@
 import "basiclightbox/dist/basicLightbox.min.css";
 import * as basicLightbox from "basiclightbox";
+import { btnNext } from "./addFavoriteCity";
+import markupModal from "../templates/modal.hbs";
+import { removeLocalStorageCity } from "./utilities";
 
-const deleteSity = document.querySelector(".js-slider-list");
+const deleteCity = document.querySelector(".js-slider-list");
 
-deleteSity.addEventListener("click", isOpenModalHandle);
+deleteCity.addEventListener("click", isOpenModalHandle);
 
 function isOpenModalHandle(e) {
   e.preventDefault();
   const closeBtn = e.target;
-  console.dir(closeBtn);
+  const elItemCity = closeBtn.parentElement;
+  const cityName = closeBtn.previousElementSibling;
   if (closeBtn.id === "js-btnRemove") {
-    const showModal = basicLightbox.create(`
-    <form class="modal">
-      <h2 class="modal__confirm">Are you sure you want to remove this city from your favorites?</h2>
-      <div class="modal__confirm-btn">
-        <button type="button" class="confirm-btn-yes">Yes</button>
-        <button type="button" class="confirm-btn-no">No</button>
-      </div>
-     </form>
-    `);
+    const showModal = basicLightbox.create(`${markupModal()}`);
     showModal.show();
+
     const modalConfirmBtn = document.querySelector(".modal__confirm-btn");
 
-    modalConfirmBtn.addEventListener("click", (e) => {
+    function isCloseModalHandler(e) {
       if (e.target.className === "confirm-btn-yes") {
-        closeBtn.parentElement.remove();
+        elItemCity.remove();
+        removeLocalStorageCity(cityName.innerText);
         showModal.close();
       } else if (e.target.className === "confirm-btn-no") {
         showModal.close();
       }
-    });
+      if (!deleteCity.children.length) {
+        btnNext.style.visibility = "hidden";
+      }
+    }
+
+    modalConfirmBtn.addEventListener("click", isCloseModalHandler);
   }
 }

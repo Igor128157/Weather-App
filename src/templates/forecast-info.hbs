@@ -1,18 +1,18 @@
 {{#each this}}
 <li class="forecast-info__list-item">
-    <p class="forecast-info__time">00:00</p>
-    <img class="forecast-info__icon" src="#" alt="icon" />
-    <p class="forecast-info__temp">-3</p>
+    <p class="forecast-info__time">{{time}}</p>
+    <img class="forecast-info__icon" src={{icon}} alt="icon" />
+    <p class="forecast-info__temp">{{temp}}</p>
 
     <ul class="forecast-info__details-list">
-        <li class="forecast-info__details-item forecast-info__details--precipitation">
-            <p class="forecast-info__value">772 mm</p>
+        <li class="forecast-info__details-item forecast-info__details-item--precipitation">
+            <p class="forecast-info__value">{{pressure}} mm</p>
         </li>
-        <li class="forecast-info__details-item forecast-info__details--humidity">
-            <p class="forecast-info__value">54%</p>
+        <li class="forecast-info__details-item forecast-info__details-item--humidity">
+            <p class="forecast-info__value">{{humidity}}%</p>
         </li>
-        <li class="forecast-info__details-item forecast-info__details--wind">
-            <p class="forecast-info__value">3.7 m/s</p>
+        <li class="forecast-info__details-item forecast-info__details-item--wind">
+            <p class="forecast-info__value">{{wind}} m/s</p>
         </li>
     </ul>
 </li>

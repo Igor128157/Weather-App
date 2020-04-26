@@ -38,7 +38,14 @@ const modifyResponse = (arr) => {
       dayForecast.tempMin.push(el.main.temp_min);
       dayForecast.tempMax.push(el.main.temp_max);
 
-      if (el.dt_txt.endsWith("15:00:00")) {
+      if (
+        el.dt_txt.endsWith("15:00:00") ||
+        el.dt_txt.endsWith("12:00:00") ||
+        el.dt_txt.endsWith("09:00:00") ||
+        el.dt_txt.endsWith("06:00:00") ||
+        el.dt_txt.endsWith("03:00:00") ||
+        el.dt_txt.endsWith("00:00:00")
+      ) {
         dayForecast.icon = `http://openweathermap.org/img/wn/${el.weather[0].icon}@2x.png`;
       }
     });

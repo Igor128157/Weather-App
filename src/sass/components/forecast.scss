@@ -17,7 +17,6 @@
   box-shadow: 0 8px 43px $primary-shadow-color;
   border-radius: 35px;
   background-color: $primary-background-color;
-  opacity: 0.8;
   text-align: center;
 
   &__days {
@@ -36,6 +35,10 @@
 
     &:not(:last-child) {
       margin-right: 25px;
+    }
+
+    & * {
+      pointer-events: none;
     }
   }
 
@@ -161,6 +164,10 @@
       margin-bottom: 34px;
       width: 100%;
       justify-content: space-between;
+    }
+
+    &__days-item {
+      width: auto;
     }
 
     &__city-name {

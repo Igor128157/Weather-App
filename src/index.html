@@ -11,8 +11,6 @@
     />
   </head>
   <body>
-    <!-- Секция Ивана начало -->
-    <!-- SECTION START SEARCH  -->
     <section class="search-location container">
       <form class="search-location__form js-form">
         <input type="text" name="query" placeholder="Enter the city" />
@@ -28,8 +26,6 @@
         <button class="search-location__slider-btnNext js-btnNext"></button>
       </div>
     </section>
-
-    <!-- Секция Ивана конец -->
 
     <section class="toggle container">
       <div class="toolbar">
@@ -55,97 +51,30 @@
       </div>
     </section>
 
-    <!-- Секция Романа начало  -->
-    <section class="current-weather container">
-      <img
-        class="current-weather__icon"
-        src="./images/icon-current-weather.png"
-        alt="icon"
-      />
-      <p class="current-weather__city-name">Kyiv, UA</p>
-      <div class="current-weather__temperature-wrapper">
-        <p class="current-weather__temperature">-3</p>
-        <div class="current-weather__extremum-wrap">
-          <div class="current-weather__extremum">
-            <p class="current-weather__extremum-title">min</p>
-            <span class="current-weather__extremum-value">-2</span>
-          </div>
-
-          <div class="current-weather__extremum">
-            <p class="current-weather__extremum-title">max</p>
-            <span class="current-weather__extremum-value">-3</span>
-          </div>
-        </div>
-      </div>
-    </section>
+    <section class="current-weather container"></section>
 
     <div class="button-wrapper">
       <button class="button-today">Today</button>
       <button class="button-forecast">5 Days</button>
     </div>
-    <!-- Секция Романа конец  -->
-
-    <!-- Секция Олега начало  -->
-    <!-- SECTION START FORECAST  -->
 
     <section class="forecast-wrap container">
-      <h2 class="city-name">Сity name, CN</h2>
-      <div class="forecast">
-        <h2 class="forecast__city-name">Сity name, CN</h2>
-        <div class="carousel">
-          <ul class="forecast__days"></ul>
-        </div>
+      <div class="forecast hidden">
+        <h2 class="forecast__city-name"></h2>
+        <ul class="forecast__days"></ul>
+
         <div class="forecast__arrow-warp">
           <button class="forecast__btn forecast__btn--left"></button>
           <button class="forecast__btn forecast__btn--right"></button>
         </div>
-        <!-- SECTION START FORECAST-INFO  -->
-        <div class="forecast-info">
+        <div class="forecast-info hidden">
           <ul class="forecast-info__list"></ul>
-          <button class="forecast-info__btn hidden"></button>
         </div>
-        <div class="forecast-info">
-          <ul class="forecast-info__list hidden"></ul>
-
-          <button class="forecast-info__btn hidden"></button>
-        </div>
-        <!-- SECTION END FORECAST-INFO  -->
       </div>
     </section>
 
-    <!-- SECTION END FORECAST  -->
     <section class="daily container">
-      <div class="date-info">
-        <div class="date-info__day-wrapper">
-          <p class="date-info__day-now">8</p>
-          <p class="date-info__day-week">Sat</p>
-        </div>
-        <div class="date-info__value">
-          <div class="date-info__time-wrapper">
-            <p class="date-info__time-month">February</p>
-            <p class="date-info__time-hour">21:30:56</p>
-          </div>
-          <div class="date-info__sun-wrapper">
-            <div class="date-info__sun-sunrise">
-              <img
-                class="date-info__sun-icon"
-                src="./images/sunrise.png"
-                alt="sunrise"
-              />
-              <p class="date-info__sun-time">07:04</p>
-            </div>
-            <div class="date-info__sun-sunset">
-              <img
-                class="date-info__sun-icon"
-                src="./images/sunset.png"
-                alt="sunset"
-              />
-              <p class="date-info__sun-time">17:05</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
+      <div class="date-info"></div>
       <div class="quote">
         <p class="quote__text">
           Who cares about the clouds when we're together? Just sing a song and

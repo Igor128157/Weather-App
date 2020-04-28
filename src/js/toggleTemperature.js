@@ -1,5 +1,6 @@
 import OpenWeather from "../API/OpenWeather";
 import { ready } from "./pageLoad";
+import { renderCurrentWeather } from "./currentWeather";
 
 const desCelsius = document.querySelector(".celsius");
 const desFahrenheit = document.querySelector(".fahrenheit");
@@ -16,6 +17,7 @@ if (localStorage.getItem("temperatureUnit") !== null) {
   if (tempUnitNow === temperatureUnit.imperial) {
     OpenWeather.temperatureUnit = tempUnitNow;
     ready();
+    renderCurrentWeather();
     switchInput.checked = true;
     desFahrenheit.classList.add("isActiveColor");
     desCelsius.classList.remove("isActiveColor");
@@ -27,12 +29,14 @@ function handlerToggleClick(e) {
     localStorage.setItem("temperatureUnit", temperatureUnit.imperial);
     OpenWeather.temperatureUnit = temperatureUnit.imperial;
     ready();
+    renderCurrentWeather();
     desCelsius.classList.remove("isActiveColor");
     desFahrenheit.classList.add("isActiveColor");
   } else {
     localStorage.setItem("temperatureUnit", temperatureUnit.metric);
     OpenWeather.temperatureUnit = temperatureUnit.metric;
     ready();
+    renderCurrentWeather();
     desFahrenheit.classList.remove("isActiveColor");
     desCelsius.classList.add("isActiveColor");
   }

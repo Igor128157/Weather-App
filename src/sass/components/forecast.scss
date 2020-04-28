@@ -2,16 +2,8 @@
   text-align: center;
 }
 
-.city-name {
-  display: none;
-  color: $primary-white-color;
-  font-family: $font-lato;
-  font-size: 28px;
-  font-weight: 700;
-}
-
 .forecast {
-  padding: 34px 15px 1px;
+  padding: 34px 15px 26px;
   font-family: $font-lato;
   color: $primary-white-color;
   box-shadow: 0 8px 43px $primary-shadow-color;
@@ -115,7 +107,6 @@
     display: flex;
     justify-content: space-between;
     margin: 0 auto;
-    margin-bottom: 18px;
     width: 58px;
   }
 
@@ -161,7 +152,7 @@
   .forecast {
     &__days {
       padding: 0 50px;
-      margin-bottom: 34px;
+      margin-bottom: 12px;
       width: 100%;
       justify-content: space-between;
     }
@@ -171,7 +162,7 @@
     }
 
     &__city-name {
-      display: none;
+      font-size: 28px;
     }
 
     &__day-name {

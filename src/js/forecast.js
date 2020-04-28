@@ -1,21 +1,29 @@
 import moment from "moment";
 
 import { getDayNumber } from "./utilities";
+import { addMarkupToPage } from "./utilities";
+import getForecastInfoMarkup from "../templates/forecast-info.hbs";
+import { modify } from "./forecast-info";
 
-const forecast = ({ list }) => {
+const forecastList = document.querySelector(".forecast__days");
+const forecastListInfo = document.querySelector(".forecast-info__list");
+
+const forecast = (response) => {
+  const { list } = response;
+
   const allDates = list.map((el) => getDayNumber(el.dt));
 
   const uniqueDates = allDates.filter((el, i) => allDates.indexOf(el) === i);
 
-  return uniqueDates.map((date) => {
-    return list.filter((el) => {
-      return getDayNumber(el.dt) === date;
-    });
-  });
+  const myList = uniqueDates.map((date) =>
+    list.filter((el) => getDayNumber(el.dt) === date),
+  );
+
+  return { ...response, list: myList };
 };
 
-const modifyResponse = (arr) => {
-  return arr.map((day) => {
+const modifyResponse = ({ list }) => {
+  return list.map((day) => {
     const dayForecast = {
       dayOfWeek: "",
       date: "",
@@ -56,5 +64,42 @@ const modifyResponse = (arr) => {
     return dayForecast;
   });
 };
+
+// EVENT LIST INFO
+
+function showInfo(e) {
+  const { target } = e;
+
+  if (target.tagName === "LI") {
+    const isActive = Array.from(target.firstElementChild.classList).includes(
+      "forecast__day-name--active",
+    );
+
+    if (isActive) {
+      forecastListInfo.parentElement.classList.add("hidden");
+      target.firstElementChild.classList.remove("forecast__day-name--active");
+      return;
+    }
+
+    Array.from(forecastList.children).forEach((el) => {
+      el.firstElementChild.classList.remove("forecast__day-name--active");
+    });
+    target.firstElementChild.classList.add("forecast__day-name--active");
+    forecastListInfo.scrollLeft = 0;
+    forecastListInfo.innerHTML = "";
+    forecastListInfo.parentElement.classList.remove("hidden");
+
+    const data = JSON.parse(sessionStorage.getItem("curentForecast"));
+
+    const details = data.list.filter((el) => {
+      return getDayNumber(el[0].dt) == target.dataset.date;
+    });
+
+    const murkup = getForecastInfoMarkup(modify(...details));
+    addMarkupToPage(murkup, forecastListInfo);
+  }
+}
+
+forecastList.addEventListener("click", showInfo);
 
 export { forecast, modifyResponse };

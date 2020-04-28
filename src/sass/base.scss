@@ -20,12 +20,16 @@ img {
 .hidden {
   display: none;
 }
-
-//temporary background
+.selected {
+  opacity: 1;
+}
 
 body {
-  background-image: url(../images/mobile-background.png),
-    linear-gradient(to top, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.05) 100%);
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.65) 0%,
+    rgba(0, 0, 0, 0.05) 100%
+  );
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -34,14 +38,12 @@ body {
 
 @media (min-width: 768px) {
   body {
-    background-image: url(../images/tablet-background.png);
     padding: 67px 0 74px;
   }
 }
 
 @media screen and (min-width: 1120px) {
   body {
-    background-image: url(../images/desktop-background.png);
     padding-bottom: 0;
   }
 }

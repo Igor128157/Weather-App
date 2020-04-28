@@ -1,0 +1,20 @@
+<div class="date-info__day-wrapper">
+  <p class="date-info__day-now">{{date}}</p>
+  <p class="date-info__day-week">{{dayOfWeek}}</p>
+</div>
+<div class="date-info__value">
+  <div class="date-info__time-wrapper">
+    <p class="date-info__time-month">{{month}}</p>
+    <p class="date-info__time-hour">{{currentTime}}</p>
+  </div>
+  <div class="date-info__sun-wrapper">
+    <div class="date-info__sun-sunrise">
+      {{!-- <img class="date-info__sun-icon" src="/src/images/sunrise.png" alt="sunrise" /> --}}
+      <p class="date-info__sun-time date-info__sun-time--sunrise">{{sunriseTime.hours}}:{{sunriseTime.mins}}</p>
+    </div>
+    <div class="date-info__sun-sunset">
+      {{!-- <img class="date-info__sun-icon" src="/src/images/sunset.png" alt="sunset" /> --}}
+      <p class="date-info__sun-time date-info__sun-time--sunset">{{sunsetTime.hours}}:{{sunsetTime.mins}}</p>
+    </div>
+  </div>
+</div>

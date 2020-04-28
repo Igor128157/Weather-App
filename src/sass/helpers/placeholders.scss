@@ -9,8 +9,13 @@
   font-size: 14px;
   font-weight: 700;
   text-transform: uppercase;
-
+  cursor: pointer;
+  outline: none;
+  
   &:hover {
     opacity: 1;
   }
+  // &:active{
+  //   opacity: 1;
+  // }
 }

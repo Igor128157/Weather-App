@@ -83,20 +83,17 @@
 
     &-btnPrev {
       background-image: url(../images/chevron-left-solid.svg);
-      visibility: hidden;
     }
 
     &-list {
-      display: flex;
       list-style: none;
       margin: 0;
       padding: 0;
-      width: 200px;
-      overflow: hidden;
     }
     &-sityItem {
       display: flex;
       align-items: center;
+      justify-content: space-between;
       font-size: 12px;
       font-weight: 400;
       text-decoration: underline;

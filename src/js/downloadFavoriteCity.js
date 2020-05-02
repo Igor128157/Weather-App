@@ -13,9 +13,10 @@ function clickFavoriteCityName(e) {
     OpenGalleryImg.searchQuery = cityName;
     OpenWeather.query = cityName;
     ready();
+    OpenWeather.fetchForecast().then((forecast) => axiosCityImg());
     renderCurrentWeather();
-    axiosCityImg();
     renderRandomQuote();
+
     addToFavorites.classList.add("activ-bnt");
     addToFavorites.disabled = true;
   }

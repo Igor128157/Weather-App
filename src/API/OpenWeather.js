@@ -3,7 +3,7 @@ import axios from "axios";
 export default {
   endpoint: "https://api.openweathermap.org",
   apiKey: "87cf27700817ed4e92adafa080b190b6",
-  _query: null,
+  _query: '',
   _temperatureUnit: "units=metric",
 
   async fetchForecast() {
@@ -11,7 +11,7 @@ export default {
     const { data } = await axios.get(queryString);
     return data;
   },
-  async fetchForecastByGeolocation(){
+  async fetchForecastByGeolocation() {
     const queryString = `${this.endpoint}/data/2.5/forecast?lat=${geolocation.latitude}&lon=${geolocation.longitude}&appid=${this.apiKey}&${this._temperatureUnit}`;
     const { data } = await axios.get(queryString);
     return data;
@@ -39,7 +39,7 @@ export default {
   },
 
   get query() {
-    this._query;
+    return this._query;
   },
 
   set query(value) {

@@ -11,7 +11,7 @@ export function getDayNumber(element) {
   return new Date(ms).getUTCDate();
 }
 
-const listCities = document.querySelector(".js-slider-list");
+export const listCities = document.querySelector(".js-slider-list");
 
 export function setLocalStorageCity(cityName) {
   const cities = JSON.parse(localStorage.getItem("cities"));
@@ -22,7 +22,7 @@ export function setLocalStorageCity(cityName) {
   } else if (!cities.includes(cityName)) {
     localStorage.setItem(
       "cities",
-      JSON.stringify(!cities ? [cityName] : [...cities, cityName]),
+      JSON.stringify([...cities, cityName]),
     );
     const markup = cityItemTempl(cityName);
     listCities.insertAdjacentHTML("beforeend", markup);

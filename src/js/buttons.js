@@ -26,3 +26,7 @@ refs.buttonWrapper.addEventListener("click", (e) => {
   refs.currentWeather.style.display = "none";
   refs.forecast.classList.add("selected");
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  refs.today.classList.add("selected");
+});

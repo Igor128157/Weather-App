@@ -16,14 +16,18 @@
         <input type="text" name="query" placeholder="Enter the city" />
         <button
           type="button"
-          class="search-location__form-btn"
+          class="search-location__form-btn append"
           id="js-btnAdd"
         ></button>
       </form>
       <div class="search-location__slider">
-        <button class="search-location__slider-btnPrev"></button>
-        <ul class="search-location__slider-list js-slider-list"></ul>
-        <button class="search-location__slider-btnNext js-btnNext"></button>
+        <button
+          class="search-location__slider-btnPrev js-btnPrev prev"
+        ></button>
+        <ul class="search-location__slider-list js-slider-list siema"></ul>
+        <button
+          class="search-location__slider-btnNext js-btnNext next"
+        ></button>
       </div>
     </section>
 
@@ -63,15 +67,23 @@
         <h2 class="forecast__city-name"></h2>
         <ul class="forecast__days"></ul>
 
-        <div class="forecast__arrow-warp">
+        <!-- <div class="forecast__arrow-warp">
           <button class="forecast__btn forecast__btn--left"></button>
           <button class="forecast__btn forecast__btn--right"></button>
-        </div>
-        <div class="forecast-info hidden">
+        </div> -->
+        <div class="forecast-info">
           <ul class="forecast-info__list"></ul>
+          <button class="forecast-info__btn hidden"></button>
+        </div>
+        <div class="forecast-info">
+          <ul class="forecast-info__list hidden"></ul>
+          <button class="forecast-info__btn hidden"></button>
         </div>
       </div>
     </section>
+    <!-- SECTION END FORECAST  -->
+    <!-- Секция Олега конец  -->
+    <!-- Секция Игоря начало  -->
 
     <section class="daily container">
       <div class="date-info"></div>
@@ -83,5 +95,6 @@
         <p class="quote__author">Dale Evans</p>
       </div>
     </section>
+    <!-- Секция игоря конец  -->
   </body>
 </html>

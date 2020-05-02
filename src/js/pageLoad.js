@@ -6,22 +6,16 @@ import OpenGalleryImg from "../API/OpenGalleryImg";
 
 import getForecastMarkup from "../templates/forecast.hbs";
 
-const forecastSection = document.querySelector(".forecast-wrap");
 const cityName = document.querySelector(".forecast__city-name");
 const forecastList = document.querySelector(".forecast__days");
-const forecastListInfo = document.querySelector(".forecast-info__list");
 
 export function ready() {
-  if (OpenWeather._query === "") return;
-
   OpenWeather.fetchForecast()
     .then(forecast)
     .then((data) => {
       sessionStorage.setItem("curentForecast", JSON.stringify(data));
 
-      forecastSection.classList.remove("hidden");
       forecastList.innerHTML = "";
-      forecastListInfo.parentElement.classList.add("hidden");
 
       cityName.innerHTML = `${data.city.name}, ${data.city.country}`;
 

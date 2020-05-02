@@ -13,17 +13,35 @@
 
   &__days {
     margin: 0 auto;
+    padding-bottom: 18px;
     width: 226px;
     display: flex;
     justify-content: flex-start;
     list-style: none;
     margin-bottom: 18px;
     overflow: hidden;
+    overflow-x: scroll;
+    white-space: nowrap;
+
+    &::-webkit-scrollbar {
+      -webkit-appearance: none;
+      height: 2px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: $secondary-white-color;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 2px;
+      background-color: $primary-active-color;
+    }
   }
 
   &__days-item {
     width: 75px;
     cursor: pointer;
+    display: inline-block;
 
     &:not(:last-child) {
       margin-right: 25px;
@@ -155,6 +173,8 @@
       margin-bottom: 12px;
       width: 100%;
       justify-content: space-between;
+      white-space: nowrap;
+      overflow-x: hidden;
     }
 
     &__days-item {
@@ -194,6 +214,9 @@
 }
 
 @media screen and (min-width: 1120px) {
+  .forecast-wrap {
+    margin-bottom: 74px;
+  }
   .forecast {
     &__days {
       padding: 0 116px;

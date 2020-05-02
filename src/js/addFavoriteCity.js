@@ -5,51 +5,51 @@ import OpenWeather from "../API/OpenWeather";
 import { setLocalStorageCity } from "./utilities";
 import { ready, axiosCityImg } from "./pageLoad";
 import { renderCurrentWeather } from "./currentWeather";
-import {renderRandomQuote} from "./quote"
+import { renderRandomQuote } from "./quote";
 export const addToFavorites = document.querySelector("#js-btnAdd");
 export const btnNext = document.querySelector(".js-btnNext");
+export const btnPrev = document.querySelector(".js-btnPrev");
 const listSities = document.querySelector(".js-slider-list");
 
-document.addEventListener("DOMContentLoaded", () => {
-  if (!listSities.childElementCount) {
-    btnNext.style.visibility = "hidden";
-  }
-});
-
 const cities = JSON.parse(localStorage.getItem("cities"));
-if (cities !== null) {
+if (cities !== null && cities.length !== 0) {
   cities.forEach((city) =>
     listSities.insertAdjacentHTML("beforeend", cityItemTempl(city)),
   );
-  // Нужно придумать что будет при первой закгрузке, если пока нет избранных городов?!?!?!?!
   OpenWeather.query = cities[0];
   OpenGalleryImg.searchQuery = cities[0];
   ready();
-  axiosCityImg();
+  OpenWeather.fetchForecast().then((forecast) => axiosCityImg());
   renderCurrentWeather();
   renderRandomQuote();
+
   addToFavorites.classList.add("activ-bnt");
   addToFavorites.disabled = true;
+} else {
+  btnNext.style.visibility = "hidden";
+  btnPrev.style.visibility = "hidden";
 }
-//Добавил загрузку по умолчанию погоды и фона Киева
-if (!! cities) {
+
+if (cities === null || cities.length === 0) {
   OpenWeather.query = "Kyiv";
   OpenGalleryImg.searchQuery = "Kyiv";
   ready();
-  axiosCityImg();
+  OpenWeather.fetchForecast().then((forecast) => axiosCityImg());
   renderCurrentWeather();
   renderRandomQuote();
 }
 
 addToFavorites.addEventListener("click", handlerClickButton);
 
-function handlerClickButton(e) {
-  const city = OpenGalleryImg.searchQuery;
+function handlerClickButton() {
+  const city = OpenGalleryImg.query;
+  console.log(city);
   if (city) {
     setLocalStorageCity(city);
     addToFavorites.classList.add("activ-bnt");
     addToFavorites.disabled = true;
     addToFavorites.classList.remove("inactiv-bnt");
     btnNext.style.visibility = "visible";
+    btnPrev.style.visibility = "visible";
   }
 }

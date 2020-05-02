@@ -6,6 +6,7 @@ import getForecastInfoMarkup from "../templates/forecast-info.hbs";
 import { modify } from "./forecast-info";
 
 const forecastList = document.querySelector(".forecast__days");
+const forecastInfoSection = document.querySelector(".forecast-info");
 const forecastListInfo = document.querySelector(".forecast-info__list");
 
 const forecast = (response) => {
@@ -76,7 +77,7 @@ function showInfo(e) {
     );
 
     if (isActive) {
-      forecastListInfo.parentElement.classList.add("hidden");
+      forecastInfoSection.style.maxHeight = null;
       target.firstElementChild.classList.remove("forecast__day-name--active");
       return;
     }
@@ -87,7 +88,6 @@ function showInfo(e) {
     target.firstElementChild.classList.add("forecast__day-name--active");
     forecastListInfo.scrollLeft = 0;
     forecastListInfo.innerHTML = "";
-    forecastListInfo.parentElement.classList.remove("hidden");
 
     const data = JSON.parse(sessionStorage.getItem("curentForecast"));
 
@@ -97,6 +97,12 @@ function showInfo(e) {
 
     const murkup = getForecastInfoMarkup(modify(...details));
     addMarkupToPage(murkup, forecastListInfo);
+
+    forecastInfoSection.style.maxHeight = `${forecastInfoSection.scrollHeight}px`;
+    // window.scrollTo({
+    //   top: 1500,
+    //   behavior: "smooth",
+    // });
   }
 }
 

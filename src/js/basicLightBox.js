@@ -1,8 +1,9 @@
 import "basiclightbox/dist/basicLightbox.min.css";
 import * as basicLightbox from "basiclightbox";
-import { btnNext } from "./addFavoriteCity";
+import { btnNext, btnPrev } from "./addFavoriteCity";
 import markupModal from "../templates/modal.hbs";
 import { removeLocalStorageCity } from "./utilities";
+import { addToFavorites } from "./addFavoriteCity";
 
 const deleteCity = document.querySelector(".js-slider-list");
 
@@ -24,11 +25,16 @@ function isOpenModalHandle(e) {
         elItemCity.remove();
         removeLocalStorageCity(cityName.innerText);
         showModal.close();
+        location.reload()
       } else if (e.target.className === "confirm-btn-no") {
         showModal.close();
       }
-      if (!deleteCity.children.length) {
+      const cities = JSON.parse(localStorage.getItem("cities"));
+      if (!cities.length) {
         btnNext.style.visibility = "hidden";
+        btnPrev.style.visibility = "hidden";
+        addToFavorites.classList.remove("activ-bnt");
+        addToFavorites.disabled = false;
       }
     }
 
